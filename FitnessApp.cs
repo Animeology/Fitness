@@ -21,8 +21,8 @@
             switch (choice)
             {
                 case 1:
-                    Info info = new Info();
-                    info.MenuInfo();
+                    Info info = new();
+                    info.InfoMenu();
                     break;
                 case 2:
                     break;
