@@ -2,11 +2,11 @@
 {
     public class Info
     {
-        int weight;
-        int feet;
-        int inches;
+        int m_weight;
+        int m_feet;
+        int m_inches;
 
-        public void MenuInfo()
+        public void InfoMenu()
         {
             Console.WriteLine("1. Create");
             Console.WriteLine("2. Check");
@@ -34,27 +34,33 @@
         void Create()
         {
             Console.Write("Weight: ");
-            weight = Convert.ToInt32(Console.ReadLine());
+            m_weight = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Height: ");
+            
             Console.Write("Ft: ");
-            feet = Convert.ToInt32(Console.ReadLine());
+            m_feet = Convert.ToInt32(Console.ReadLine());
+            
             Console.Write("In: ");
-            inches = Convert.ToInt32(Console.ReadLine());
+            m_inches = Convert.ToInt32(Console.ReadLine());
 
-            MenuInfo();
+            InfoMenu();
         }
 
         void Check()
         {
             Console.Write("Current Weight: ");
-            Console.WriteLine(weight);
+            Console.WriteLine(m_weight);
 
             Console.WriteLine("Current Height: ");
-            Console.Write(feet);
-            Console.WriteLine(inches);
+            
+            Console.Write("Ft: ");
+            Console.Write(m_feet);
 
-            MenuInfo();
+            Console.Write(" In: ");
+            Console.WriteLine(m_inches);
+
+            InfoMenu();
         }
     }
 }
