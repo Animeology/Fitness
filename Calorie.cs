@@ -23,12 +23,18 @@
             }
         }
 
+        static void CalorieDeficit()
+        {
+
+        }
+
         public static void CheckInfoBeforeCalculate()
         {
-            Console.WriteLine("Your weight is {0}, your height is {1}, and you are {2} years old",
+            Console.WriteLine("Your weight is {0}, your height is {1}, {2} years old, and a {3}",
                 Info.m_weight,
                 Info.m_height,
-                Info.m_age
+                Info.m_age,
+                Info.m_gender == 'M' ? "Male" : "Female" 
             );
 
             Console.WriteLine("Is this correct?");
