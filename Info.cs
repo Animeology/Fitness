@@ -2,11 +2,14 @@
 {
     public class Info
     {
-        static int m_weight;        
-        static int m_inches;
+        public static int m_weight;
+        public static int m_height;
+        public static int m_age;
+        public static char m_gender;
 
         public static void InfoMenu()
         {
+            Console.WriteLine("Your Info ");
             Console.WriteLine("1. Create");
             Console.WriteLine("2. Check");
             Console.WriteLine("3. Go Back to Menu");
@@ -36,9 +39,23 @@
             Console.Write(m_weight);
             Console.WriteLine(" lbs");
 
-            Console.Write("Current Height: ");            
-            Console.Write(m_inches);
+            Console.Write("Current Height: ");
+            Console.Write(m_height);
             Console.WriteLine(" inches");
+
+            Console.Write("Current Age: ");
+            Console.Write(m_age);
+            Console.WriteLine(" year old");
+
+            Console.Write("Current Gender: ");
+            if (m_gender == 'M')
+            {
+                Console.WriteLine("Male");
+            }
+            else
+            {
+                Console.WriteLine("Female");
+            }
 
             InfoMenu();
         }
@@ -47,6 +64,8 @@
         {
             CreateWeightInfo();
             CreateHeightInfo();
+            CreateAge();
+            CreateGender();
             InfoMenu();
         }
 
@@ -59,9 +78,29 @@
 
         static int CreateHeightInfo()
         {
-            Console.Write("Height (in inches): ");            
-            m_inches = Convert.ToInt32(Console.ReadLine());
-            return m_inches;            
+            Console.Write("Height (in inches): ");
+            m_height = Convert.ToInt32(Console.ReadLine());
+            return m_height;
+        }
+
+        static int CreateAge()
+        {
+            Console.Write("Age (in years): ");
+            m_age = Convert.ToInt32(Console.ReadLine());
+            return m_age;
+        }
+
+        static char CreateGender()
+        {
+            Console.Write("Gender ((M)ale or (F)emale): ");
+            m_gender = Convert.ToChar(Console.ReadLine()!);
+
+            if (m_gender != 'M' && m_gender != 'F')
+            {
+                Console.WriteLine("There are only 2 genders, (M)ale and (F)emale");
+                CreateGender();
+            }
+            return m_gender;
         }
     }
 }
