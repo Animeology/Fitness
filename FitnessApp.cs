@@ -21,10 +21,10 @@
             switch (choice)
             {
                 case 1:
-                    Info info = new();
-                    info.InfoMenu();
+                    Info.InfoMenu();
                     break;
                 case 2:
+
                     break;
                 case 3:
                     break;

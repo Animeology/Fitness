@@ -2,11 +2,10 @@
 {
     public class Info
     {
-        int m_weight;
-        int m_feet;
-        int m_inches;
+        static int m_weight;        
+        static int m_inches;
 
-        public void InfoMenu()
+        public static void InfoMenu()
         {
             Console.WriteLine("1. Create");
             Console.WriteLine("2. Check");
@@ -31,36 +30,38 @@
             }
         }
 
-        void Create()
+        static void Check()
         {
-            Console.Write("Weight: ");
-            m_weight = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Current Weight: ");
+            Console.Write(m_weight);
+            Console.WriteLine(" lbs");
 
-            Console.WriteLine("Height: ");
-            
-            Console.Write("Ft: ");
-            m_feet = Convert.ToInt32(Console.ReadLine());
-            
-            Console.Write("In: ");
-            m_inches = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Current Height: ");            
+            Console.Write(m_inches);
+            Console.WriteLine(" inches");
 
             InfoMenu();
         }
 
-        void Check()
+        static void Create()
         {
-            Console.Write("Current Weight: ");
-            Console.WriteLine(m_weight);
-
-            Console.WriteLine("Current Height: ");
-            
-            Console.Write("Ft: ");
-            Console.Write(m_feet);
-
-            Console.Write(" In: ");
-            Console.WriteLine(m_inches);
-
+            CreateWeightInfo();
+            CreateHeightInfo();
             InfoMenu();
+        }
+
+        static int CreateWeightInfo()
+        {
+            Console.Write("Weight (in pounds): ");
+            m_weight = Convert.ToInt32(Console.ReadLine());
+            return m_weight;
+        }
+
+        static int CreateHeightInfo()
+        {
+            Console.Write("Height (in inches): ");            
+            m_inches = Convert.ToInt32(Console.ReadLine());
+            return m_inches;            
         }
     }
 }
