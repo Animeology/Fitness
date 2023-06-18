@@ -24,7 +24,7 @@
                     Info.InfoMenu();
                     break;
                 case 2:
-
+                    Calorie.CheckInfoBeforeCalculate();
                     break;
                 case 3:
                     break;
