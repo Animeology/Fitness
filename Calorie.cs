@@ -23,10 +23,36 @@
             }
         }
 
-        static void CalorieDeficit()
+        static void MenCalorieDeficit()
         {
+            float menConst = 66;
+            float weightConst = 6.23f;
+            float heightConst = 12.7f;
+            float ageConst = 6.8f;
+            float calorieDiff = 500;
 
+            double BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+
+            double deficit = BMR - calorieDiff;
+
+            Console.WriteLine("Your calorie intake is {0}", deficit);
         }
+
+        static void MenCalorieSurplus()
+        {
+            float menConst = 66;
+            float weightConst = 6.23f;
+            float heightConst = 12.7f;
+            float ageConst = 6.8f;
+            float calorieDiff = 500;
+
+            double BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+
+            double deficit = BMR + calorieDiff;
+
+            Console.WriteLine("Your calorie intake is {0}", deficit);
+        }
+
 
         public static void CheckInfoBeforeCalculate()
         {
