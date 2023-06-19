@@ -9,6 +9,7 @@
 
         public static void InfoMenu()
         {
+            Console.WriteLine();
             Console.WriteLine("Your Info ");
             Console.WriteLine("1. Create");
             Console.WriteLine("2. Check");

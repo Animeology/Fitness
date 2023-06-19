@@ -9,6 +9,7 @@
 
         public static void Menu()
         {
+            Console.WriteLine();
             Console.WriteLine("Welcome to the Fitness App!");
 
             Console.WriteLine("1. Info");
