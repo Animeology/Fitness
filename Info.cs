@@ -2,7 +2,7 @@
 {
     public class Info
     {
-        public static int m_weight;
+        public static double m_weight;
         public static int m_height;
         public static int m_age;
         public static char m_gender;
@@ -69,7 +69,7 @@
             InfoMenu();
         }
 
-        static int CreateWeightInfo()
+        static double CreateWeightInfo()
         {
             Console.Write("Weight (in pounds): ");
             m_weight = Convert.ToInt32(Console.ReadLine());
