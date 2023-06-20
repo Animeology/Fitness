@@ -15,7 +15,7 @@
             switch (choice)
             {
                 case 1:
-                    if(Info.m_gender == 'M')
+                    if (Info.m_gender == 'M')
                     {
                         MenCalorieDeficit();
                     }
@@ -26,7 +26,7 @@
                     CalorieMenu();
                     break;
                 case 2:
-                    if(Info.m_gender == 'M')
+                    if (Info.m_gender == 'M')
                     {
                         MenCalorieSurplus();
                     }
@@ -114,7 +114,7 @@
                 Info.m_weight,
                 Info.m_height,
                 Info.m_age,
-                Info.m_gender == 'M' ? "Male" : "Female" 
+                Info.m_gender == 'M' ? "Male" : "Female"
             );
 
             Console.WriteLine("Is this correct?");
