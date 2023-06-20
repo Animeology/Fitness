@@ -6,7 +6,7 @@
         public static float m_squat;
         public static float m_deadlift;
 
-        static void PRMenu()
+        public static void PRMenu()
         {
             PRStats();
 
@@ -19,8 +19,11 @@
             switch (choice)
             {
                 case 1:
+                    CreatePRStats();
+                    PRMenu();
                     break;
                 case 2:
+                    FitnessApp.Menu();
                     break;
                 default:
                     Console.WriteLine("Not a valid choice");
@@ -29,12 +32,60 @@
             }
         }
 
-        private static void PRStats()
-        {            
+        static void CreatePRStats()
+        {
+            BenchPR();
+            SquatPR();
+            DeadliftPR();
+        }
+
+        static void BenchPR()
+        {
+            Console.Write("Enter your bench PR (in pounds): ");
+            try
+            {
+                m_bench = Convert.ToSingle(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid input, must be a number.");
+            }
+        }
+
+        static void SquatPR()
+        {
+            Console.Write("Enter your squat PR (in pounds): ");
+            try
+            {
+                m_squat = Convert.ToSingle(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid input, must be a number.");
+            }
+        }
+
+        static void DeadliftPR()
+        {
+            Console.Write("Enter your deadlift PR (in pounds): ");
+            try
+            {
+                m_deadlift = Convert.ToSingle(Console.ReadLine());
+            }
+            catch
+            {
+                Console.WriteLine("Invalid input, must be a number.");
+            }
+        }
+
+        static void PRStats()
+        {
+            float total = m_bench + m_squat + m_deadlift;
             Console.WriteLine("Here is your PR: ");
             Console.WriteLine("Bench: {0}", m_bench);
             Console.WriteLine("Squat: {0}", m_squat);
             Console.WriteLine("Deadlift: {0}", m_deadlift);
+            Console.WriteLine("Total pounds: {0}", total);
             Console.WriteLine();
         }
     }

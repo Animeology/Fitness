@@ -28,6 +28,7 @@
                     Calorie.CheckInfoBeforeCalculate();
                     break;
                 case 3:
+                    PersonalRecord.PRMenu();
                     break;
                 case 4:
                     break;
