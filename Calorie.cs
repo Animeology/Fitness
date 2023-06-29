@@ -106,11 +106,10 @@
             Console.WriteLine("Your calorie intake is {0}", surplus);
         }
 
-
-
         public static void CheckInfoBeforeCalculate()
         {
-            Console.WriteLine("Your weight is {0}, your height is {1}, {2} years old, and a {3}",
+            Console.WriteLine(
+                "Your weight is {0}, your height is {1}, {2} years old, and a {3}",
                 Info.m_weight,
                 Info.m_height,
                 Info.m_age,
