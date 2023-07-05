@@ -2,8 +2,6 @@
 {
     public class Calorie
     {
-        public float BMR;
-
         static void CalorieMenu()
         {
             Console.WriteLine();
@@ -48,7 +46,7 @@
             }
         }
 
-        public void MenCalorieDeficit()
+        public static float MenCalorieDeficit()
         {
             float menConst = 66;
             float weightConst = 6.23f;
@@ -58,11 +56,13 @@
             float calorieDiff = 500;
 
 
-            BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+            float BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
 
-            double deficit = BMR - calorieDiff;
+            float deficit = BMR - calorieDiff;
 
             Console.WriteLine("Your calorie intake is {0}", deficit);
+
+            return deficit;
         }
 
         public static void MenCalorieSurplus()
