@@ -54,6 +54,7 @@
             float weightConst = 6.23f;
             float heightConst = 12.7f;
             float ageConst = 6.8f;
+
             float calorieDiff = 500;
 
 
@@ -70,6 +71,7 @@
             float weightConst = 6.23f;
             float heightConst = 12.7f;
             float ageConst = 6.8f;
+
             float calorieDiff = 500;
 
             float BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
@@ -85,6 +87,7 @@
             float weightConst = 4.35f;
             float heightConst = 4.7f;
             float ageConst = 4.7f;
+
             float calorieDiff = 500;
 
             double BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
@@ -100,6 +103,7 @@
             float weightConst = 4.35f;
             float heightConst = 4.7f;
             float ageConst = 4.7f;
+
             float calorieDiff = 500;
 
             double BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
