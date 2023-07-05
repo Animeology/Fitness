@@ -7,15 +7,20 @@
             CalculateMenDeficitCalorie_Works();
             CalculateMenSurplusCalorie_Works();
             CalculateWomenDeficitCalorie_Works();
+            CalculateWomenSurplusCalorie_Works();
         }
 
         static void CalculateMenDeficitCalorie_Works()
         {
-            float expectedWeight = 100;
-            float expectedHeight = 135;
-            float expectedAge = 25;
+            Info.m_weight = 150;
+            Info.m_height = 180;
+            Info.m_age = 25;
 
             Calorie calorie = new Calorie();
+
+            var expectedWeight = Info.m_weight;
+            var expectedHeight = Info.m_height;
+            var expectedAge = Info.m_age;
 
             float expected = CalculatorExpectedMenCalories(expectedWeight, expectedHeight, expectedAge, "deficit");
             float actual = calorie.MenCalorieDeficit();
@@ -33,11 +38,15 @@
 
         static void CalculateMenSurplusCalorie_Works()
         {
-            float expectedWeight = 100;
-            float expectedHeight = 135;
-            float expectedAge = 25;
+            Info.m_weight = 180;
+            Info.m_height = 150;
+            Info.m_age = 30;
 
             Calorie calorie = new Calorie();
+
+            var expectedWeight = Info.m_weight;
+            var expectedHeight = Info.m_height;
+            var expectedAge = Info.m_age;
 
             float expected = CalculatorExpectedMenCalories(expectedWeight, expectedHeight, expectedAge, "surplus");
             float actual = calorie.MenCalorieSurplus();
@@ -55,11 +64,15 @@
 
         static void CalculateWomenDeficitCalorie_Works()
         {
-            float expectedWeight = 100;
-            float expectedHeight = 135;
-            float expectedAge = 25;
+            Info.m_weight = 100;
+            Info.m_height = 135;
+            Info.m_age = 25;
 
             Calorie calorie = new Calorie();
+
+            var expectedWeight = Info.m_weight;
+            var expectedHeight = Info.m_height;
+            var expectedAge = Info.m_age;
 
             float expected = CalculatorExpectedWomenCalories(expectedWeight, expectedHeight, expectedAge, "deficit");
             float actual = calorie.WomenCalorieDeficit();
@@ -72,6 +85,32 @@
             else
             {
                 Console.WriteLine("Calculate Women's Deficit Doesn't Works: expected: {0} actual: {1}", expected, actual);
+            }
+        }
+
+        static void CalculateWomenSurplusCalorie_Works()
+        {
+            Info.m_weight = 180;
+            Info.m_height = 150;
+            Info.m_age = 30;
+
+            Calorie calorie = new Calorie();
+
+            var expectedWeight = Info.m_weight;
+            var expectedHeight = Info.m_height;
+            var expectedAge = Info.m_age;
+
+            float expected = CalculatorExpectedWomenCalories(expectedWeight, expectedHeight, expectedAge, "surplus");
+            float actual = calorie.WomenCalorieSurplus();
+
+
+            if (actual == expected)
+            {
+                Console.WriteLine("Calculate Women's Surplus Works: expected: {0} actual: {1}", expected, actual);
+            }
+            else
+            {
+                Console.WriteLine("Calculate Women's Surplus Doesn't Works: expected: {0} actual: {1}", expected, actual);
             }
         }
 
