@@ -60,7 +60,7 @@
 
             float deficit = BMR - calorieDiff;
 
-            Console.WriteLine("Your calorie intake is {0}", deficit);
+            //Console.WriteLine("Your calorie intake is {0}", deficit);
 
             return deficit;
         }
