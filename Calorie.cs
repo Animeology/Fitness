@@ -87,10 +87,11 @@
             {
                 Console.WriteLine("Your calorie intake is {0} calories", surplus);
             }
+
             return surplus;
         }
 
-        static void WomenCalorieDeficit()
+        public float WomenCalorieDeficit()
         {
             float womenConst = 655;
             float weightConst = 4.35f;
@@ -103,10 +104,15 @@
 
             float deficit = BMR - calorieDiff;
 
-            Console.WriteLine("Your calorie intake is {0} calories", deficit);
+            if (!isTesting)
+            {
+                Console.WriteLine("Your calorie intake is {0} calories", deficit);
+            }
+
+            return deficit;
         }
 
-        static void WomenCalorieSurplus()
+        public float WomenCalorieSurplus()
         {
             float womenConst = 655;
             float weightConst = 4.35f;
@@ -119,7 +125,12 @@
 
             float surplus = BMR + calorieDiff;
 
-            Console.WriteLine("Your calorie intake is {0}", surplus);
+            if (!isTesting)
+            {
+                Console.WriteLine("Your calorie intake is {0} calories", surplus);
+            }
+
+            return surplus;
         }
 
         public static void CheckInfoBeforeCalculate()
