@@ -6,19 +6,16 @@
         {
             CalculateMenDeficitCalorie_Works();
             CalculateMenSurplusCalorie_Works();
+            CalculateWomenDeficitCalorie_Works();
         }
 
         static void CalculateMenDeficitCalorie_Works()
         {
-            Info.m_weight = 150;
-            Info.m_height = 180;
-            Info.m_age = 25;
+            float expectedWeight = 100;
+            float expectedHeight = 135;
+            float expectedAge = 25;
 
             Calorie calorie = new Calorie();
-
-            var expectedWeight = Info.m_weight;
-            var expectedHeight = Info.m_height;
-            var expectedAge = Info.m_age;
 
             float expected = CalculatorExpectedMenCalories(expectedWeight, expectedHeight, expectedAge, "deficit");
             float actual = calorie.MenCalorieDeficit();
@@ -36,15 +33,11 @@
 
         static void CalculateMenSurplusCalorie_Works()
         {
-            Info.m_weight = 180;
-            Info.m_height = 150;
-            Info.m_age = 30;
+            float expectedWeight = 100;
+            float expectedHeight = 135;
+            float expectedAge = 25;
 
             Calorie calorie = new Calorie();
-
-            var expectedWeight = Info.m_weight;
-            var expectedHeight = Info.m_height;
-            var expectedAge = Info.m_age;
 
             float expected = CalculatorExpectedMenCalories(expectedWeight, expectedHeight, expectedAge, "surplus");
             float actual = calorie.MenCalorieSurplus();
@@ -62,15 +55,11 @@
 
         static void CalculateWomenDeficitCalorie_Works()
         {
-            Info.m_weight = 150;
-            Info.m_height = 180;
-            Info.m_age = 25;
+            float expectedWeight = 100;
+            float expectedHeight = 135;
+            float expectedAge = 25;
 
             Calorie calorie = new Calorie();
-
-            var expectedWeight = Info.m_weight;
-            var expectedHeight = Info.m_height;
-            var expectedAge = Info.m_age;
 
             float expected = CalculatorExpectedWomenCalories(expectedWeight, expectedHeight, expectedAge, "deficit");
             float actual = calorie.WomenCalorieDeficit();
