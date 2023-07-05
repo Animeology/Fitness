@@ -2,7 +2,9 @@
 {
     public class Calorie
     {
-        static void CalorieMenu()
+        bool isTesting = true;
+
+        void CalorieMenu()
         {
             Console.WriteLine();
             Console.WriteLine("Want to lose weight or gain weight?");
@@ -46,7 +48,7 @@
             }
         }
 
-        public static float MenCalorieDeficit()
+        public float MenCalorieDeficit()
         {
             float menConst = 66;
             float weightConst = 6.23f;
@@ -60,12 +62,15 @@
 
             float deficit = BMR - calorieDiff;
 
-            //Console.WriteLine("Your calorie intake is {0}", deficit);
+            if (!isTesting)
+            {
+                Console.WriteLine("Your calorie intake is {0}", deficit);
+            }
 
             return deficit;
         }
 
-        public static void MenCalorieSurplus()
+        public float MenCalorieSurplus()
         {
             float menConst = 66;
             float weightConst = 6.23f;
@@ -76,9 +81,13 @@
 
             float BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
 
-            double surplus = BMR + calorieDiff;
+            float surplus = BMR + calorieDiff;
 
-            Console.WriteLine("Your calorie intake is {0} calories", surplus);
+            if (!isTesting)
+            {
+                Console.WriteLine("Your calorie intake is {0} calories", surplus);
+            }
+            return surplus;
         }
 
         static void WomenCalorieDeficit()
@@ -90,9 +99,9 @@
 
             float calorieDiff = 500;
 
-            double BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+            float BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
 
-            double deficit = BMR - calorieDiff;
+            float deficit = BMR - calorieDiff;
 
             Console.WriteLine("Your calorie intake is {0} calories", deficit);
         }
@@ -106,9 +115,9 @@
 
             float calorieDiff = 500;
 
-            double BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+            float BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
 
-            double surplus = BMR + calorieDiff;
+            float surplus = BMR + calorieDiff;
 
             Console.WriteLine("Your calorie intake is {0}", surplus);
         }
@@ -132,7 +141,8 @@
             switch (choice)
             {
                 case 1:
-                    CalorieMenu();
+                    Calorie calorie = new Calorie();
+                    calorie.CalorieMenu();
                     break;
                 case 2:
                     Info.InfoMenu();
