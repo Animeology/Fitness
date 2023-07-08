@@ -6,6 +6,8 @@
         {
             CreateWeightInfo_Works();
             CreateHeightInfo_Works();
+            CreateAge_Works();
+            CreateGender_Works();
         }
 
         static void CreateWeightInfo_Works()
@@ -58,8 +60,6 @@
 
             int actualHeight = info.CreateAge();
 
-            info.CreateAge();
-
             if( actualHeight == expectedAge)
             {
                 Console.WriteLine("CreateAge test succeeded");
@@ -67,6 +67,26 @@
             else
             {
                 Console.WriteLine("CreateAge test failed");
+            }
+        }
+
+        static void CreateGender_Works()
+        {
+            Info.m_gender = 'M';
+
+            Info info = new Info();
+
+            var expectedGender = Info.m_gender;
+
+            char actualGender = info.CreateGender();
+
+            if( actualGender == expectedGender)
+            {
+                Console.WriteLine("CreateGender test succeeded");
+            }
+            else
+            {
+                Console.WriteLine("CreateGender test failed");
             }
         }
     }
