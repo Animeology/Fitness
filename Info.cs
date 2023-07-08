@@ -2,10 +2,10 @@
 {
     public class Info
     {
-        public static float m_weight;
-        public static int m_height;
-        public static int m_age;
-        public static char m_gender;
+        public float m_weight;
+        public int m_height;
+        public int m_age;
+        public char m_gender;
 
         public static void InfoMenu()
         {
@@ -70,28 +70,28 @@
             InfoMenu();
         }
 
-        static float CreateWeightInfo()
+        public float CreateWeightInfo()
         {
             Console.Write("Weight (in pounds): ");
             m_weight = Convert.ToInt32(Console.ReadLine());
             return m_weight;
         }
 
-        static int CreateHeightInfo()
+        public int CreateHeightInfo()
         {
             Console.Write("Height (in inches): ");
             m_height = Convert.ToInt32(Console.ReadLine());
             return m_height;
         }
 
-        static int CreateAge()
+        public int CreateAge()
         {
             Console.Write("Age (in years): ");
             m_age = Convert.ToInt32(Console.ReadLine());
             return m_age;
         }
 
-        static char CreateGender()
+        public char CreateGender()
         {
             Console.Write("Gender ((M)ale or (F)emale): ");
             m_gender = Convert.ToChar(Console.ReadLine()!);
