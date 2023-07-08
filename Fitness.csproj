@@ -5,7 +5,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Fitness.InfoTests</StartupObject>
+    <StartupObject>Fitness.FitnessApp</StartupObject>
   </PropertyGroup>
 
 </Project>
