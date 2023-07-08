@@ -7,7 +7,7 @@
         public static int m_age;
         public static char m_gender;
 
-        bool isTesting = true;
+        bool isTesting = false;
 
         public static void InfoMenu()
         {
