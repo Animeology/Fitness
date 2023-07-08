@@ -93,10 +93,13 @@
             return m_height;
         }
 
-        public static int CreateAge()
+        public int CreateAge()
         {
-            Console.Write("Age (in years): ");
-            m_age = Convert.ToInt32(Console.ReadLine());
+            if (isTesting == false)
+            {
+                Console.Write("Age (in years): ");
+                m_age = Convert.ToInt32(Console.ReadLine());
+            }
             return m_age;
         }
 
