@@ -1,11 +1,13 @@
 ﻿namespace Fitness
 {
-    public static class Info
+    public class Info
     {
         public static float m_weight;
         public static int m_height;
         public static int m_age;
         public static char m_gender;
+
+        bool isTesting = true;
 
         public static void InfoMenu()
         {
@@ -70,10 +72,13 @@
             InfoMenu();
         }
 
-        public static float CreateWeightInfo()
+        public float CreateWeightInfo()
         {
-            Console.Write("Weight (in pounds): ");
-            m_weight = Convert.ToInt32(Console.ReadLine());
+            if(isTesting == false)
+            {
+                Console.Write("Weight (in pounds): ");
+                m_weight = Convert.ToInt32(Console.ReadLine());
+            }
             return m_weight;
         }
 
