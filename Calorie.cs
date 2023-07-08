@@ -156,6 +156,7 @@
                     calorie.CalorieMenu();
                     break;
                 case 2:
+                    Console.WriteLine("Please input the correct info.");
                     Info.InfoMenu();
                     break;
                 default:
