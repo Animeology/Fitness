@@ -6,6 +6,8 @@
         public static float m_squat;
         public static float m_deadlift;
 
+        bool isTesting = true;
+
         public static void PRMenu()
         {
             PRStats();
@@ -42,14 +44,17 @@
 
         public float BenchPR()
         {
-            Console.Write("Enter your bench PR (in pounds): ");
-            try
+            if(isTesting == false)
             {
-                m_bench = Convert.ToSingle(Console.ReadLine());
-            }
-            catch
-            {
-                Console.WriteLine("Invalid input, must be a number.");
+                Console.Write("Enter your bench PR (in pounds): ");
+                try
+                {
+                    m_bench = Convert.ToSingle(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input, must be a number.");
+                }
             }
             return m_bench;
         }
