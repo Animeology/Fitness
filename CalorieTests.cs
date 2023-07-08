@@ -114,7 +114,6 @@
             }
         }
 
-
         static float CalculatorExpectedMenCalories(float weight, float height, float age, string difference)
         {
             float BMR;
