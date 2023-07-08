@@ -1,6 +1,6 @@
 ﻿namespace Fitness
 {
-    static class PersonalRecord
+    public class PersonalRecord
     {
         public static float m_bench;
         public static float m_squat;
@@ -19,7 +19,8 @@
             switch (choice)
             {
                 case 1:
-                    CreatePRStats();
+                    PersonalRecord pr = new PersonalRecord();
+                    pr.CreatePRStats();
                     PRMenu();
                     break;
                 case 2:
@@ -32,14 +33,14 @@
             }
         }
 
-        static void CreatePRStats()
+        void CreatePRStats()
         {
             BenchPR();
             SquatPR();
             DeadliftPR();
         }
 
-        static void BenchPR()
+        public float BenchPR()
         {
             Console.Write("Enter your bench PR (in pounds): ");
             try
@@ -50,9 +51,10 @@
             {
                 Console.WriteLine("Invalid input, must be a number.");
             }
+            return m_bench;
         }
 
-        static void SquatPR()
+        public float SquatPR()
         {
             Console.Write("Enter your squat PR (in pounds): ");
             try
@@ -63,9 +65,10 @@
             {
                 Console.WriteLine("Invalid input, must be a number.");
             }
+            return m_squat;
         }
 
-        static void DeadliftPR()
+        public float DeadliftPR()
         {
             Console.Write("Enter your deadlift PR (in pounds): ");
             try
@@ -76,9 +79,10 @@
             {
                 Console.WriteLine("Invalid input, must be a number.");
             }
+            return m_deadlift;
         }
 
-        static void PRStats()
+        public static float PRStats()
         {
             float total = m_bench + m_squat + m_deadlift;
             Console.WriteLine("Here is your PR: ");
@@ -87,6 +91,8 @@
             Console.WriteLine("Deadlift: {0}", m_deadlift);
             Console.WriteLine("Total pounds: {0}", total);
             Console.WriteLine();
+
+            return total;
         }
     }
 }
