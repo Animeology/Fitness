@@ -6,7 +6,7 @@
         public static float m_squat;
         public static float m_deadlift;
 
-        bool isTesting = true;
+        static bool isTesting = true;
 
         public static void PRMenu()
         {
@@ -61,28 +61,34 @@
 
         public float SquatPR()
         {
-            Console.Write("Enter your squat PR (in pounds): ");
-            try
+            if (isTesting == false)
             {
-                m_squat = Convert.ToSingle(Console.ReadLine());
-            }
-            catch
-            {
-                Console.WriteLine("Invalid input, must be a number.");
+                Console.Write("Enter your squat PR (in pounds): ");
+                try
+                {
+                    m_squat = Convert.ToSingle(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input, must be a number.");
+                }
             }
             return m_squat;
         }
 
         public float DeadliftPR()
         {
-            Console.Write("Enter your deadlift PR (in pounds): ");
-            try
+            if (isTesting == false)
             {
-                m_deadlift = Convert.ToSingle(Console.ReadLine());
-            }
-            catch
-            {
-                Console.WriteLine("Invalid input, must be a number.");
+                Console.Write("Enter your deadlift PR (in pounds): ");
+                try
+                {
+                    m_deadlift = Convert.ToSingle(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("Invalid input, must be a number.");
+                }
             }
             return m_deadlift;
         }
@@ -90,13 +96,16 @@
         public static float PRStats()
         {
             float total = m_bench + m_squat + m_deadlift;
-            Console.WriteLine("Here is your PR: ");
-            Console.WriteLine("Bench: {0}", m_bench);
-            Console.WriteLine("Squat: {0}", m_squat);
-            Console.WriteLine("Deadlift: {0}", m_deadlift);
-            Console.WriteLine("Total pounds: {0}", total);
-            Console.WriteLine();
 
+            if (PersonalRecord.isTesting == false)
+            {
+                Console.WriteLine("Here is your PR: ");
+                Console.WriteLine("Bench: {0}", m_bench);
+                Console.WriteLine("Squat: {0}", m_squat);
+                Console.WriteLine("Deadlift: {0}", m_deadlift);
+                Console.WriteLine("Total pounds: {0}", total);
+                Console.WriteLine();
+            }
             return total;
         }
     }
