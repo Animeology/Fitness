@@ -7,6 +7,7 @@
             BenchPR_ReturnExpected();
             SquatPR_ReturnExpected();
             DeadliftPR_ReturnExpected();
+            TotalPR_ReturnExpected();
         }
 
         static void BenchPR_ReturnExpected()
@@ -63,6 +64,32 @@
             }
         }
 
+        static void TotalPR_ReturnExpected()
+        {
+            PersonalRecord.m_bench = 135.0f;
+            PersonalRecord.m_squat = 225.0f;
+            PersonalRecord.m_deadlift = 300.0f;
 
+            var expectedTotal = CalculateTotalPR();
+            var actualTotal = PersonalRecord.PRStats();
+
+            if (actualTotal == expectedTotal)
+            {
+                Console.WriteLine("TotalPR returns the correct output");
+            }
+            else
+            {
+                Console.WriteLine("TotalPR returns the incorrect output");
+            }
+        }
+
+        static float CalculateTotalPR()
+        {
+            PersonalRecord.m_bench = 135.0f;
+            PersonalRecord.m_squat = 225.0f;
+            PersonalRecord.m_deadlift = 300.0f;
+
+            return PersonalRecord.m_bench + PersonalRecord.m_squat + PersonalRecord.m_deadlift;
+        }
     }
 }
