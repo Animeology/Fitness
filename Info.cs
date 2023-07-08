@@ -103,10 +103,13 @@
             return m_age;
         }
 
-        public static char CreateGender()
+        public char CreateGender()
         {
-            Console.Write("Gender ((M)ale or (F)emale): ");
-            m_gender = Convert.ToChar(Console.ReadLine()!);
+            if (isTesting == false)
+            {
+                Console.Write("Gender ((M)ale or (F)emale): ");
+                m_gender = Convert.ToChar(Console.ReadLine()!);
+            }
 
             if (m_gender != 'M' && m_gender != 'F')
             {
