@@ -1,11 +1,11 @@
 ﻿namespace Fitness
 {
-    public class Info
+    public static class Info
     {
-        public float m_weight;
-        public int m_height;
-        public int m_age;
-        public char m_gender;
+        public static float m_weight;
+        public static int m_height;
+        public static int m_age;
+        public static char m_gender;
 
         public static void InfoMenu()
         {
@@ -70,28 +70,28 @@
             InfoMenu();
         }
 
-        public float CreateWeightInfo()
+        public static float CreateWeightInfo()
         {
             Console.Write("Weight (in pounds): ");
             m_weight = Convert.ToInt32(Console.ReadLine());
             return m_weight;
         }
 
-        public int CreateHeightInfo()
+        public static int CreateHeightInfo()
         {
             Console.Write("Height (in inches): ");
             m_height = Convert.ToInt32(Console.ReadLine());
             return m_height;
         }
 
-        public int CreateAge()
+        public static int CreateAge()
         {
             Console.Write("Age (in years): ");
             m_age = Convert.ToInt32(Console.ReadLine());
             return m_age;
         }
 
-        public char CreateGender()
+        public static char CreateGender()
         {
             Console.Write("Gender ((M)ale or (F)emale): ");
             m_gender = Convert.ToChar(Console.ReadLine()!);
