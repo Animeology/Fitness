@@ -22,7 +22,8 @@
             switch (choice)
             {
                 case 1:
-                    Create();
+                    Info info = new Info();
+                    info.Create();
                     break;
                 case 2:
                     Check();
@@ -63,7 +64,7 @@
             InfoMenu();
         }
 
-        static void Create()
+        void Create()
         {
             CreateWeightInfo();
             CreateHeightInfo();
@@ -82,10 +83,13 @@
             return m_weight;
         }
 
-        public static int CreateHeightInfo()
+        public int CreateHeightInfo()
         {
-            Console.Write("Height (in inches): ");
-            m_height = Convert.ToInt32(Console.ReadLine());
+            if (isTesting == false)
+            {
+                Console.Write("Height (in inches): ");
+                m_height = Convert.ToInt32(Console.ReadLine());
+            }
             return m_height;
         }
 
