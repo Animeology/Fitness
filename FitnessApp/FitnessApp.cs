@@ -23,16 +23,20 @@
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
+            Info info = new Info();
+            Calorie calorie = new Calorie();
+            PersonalRecord pr = new PersonalRecord();
+
             switch (choice)
             {
                 case 1:
-                    Info.InfoMenu();
+                    info.InfoMenu();
                     break;
                 case 2:
-                    Calorie.CheckInfoBeforeCalculate();
+                    calorie.CheckInfoBeforeCalculate();
                     break;
                 case 3:
-                    PersonalRecord.PRMenu();
+                    pr.PRMenu();
                     break;
                 case 4:
                     break;
