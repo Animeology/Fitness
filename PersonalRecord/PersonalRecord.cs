@@ -1,17 +1,16 @@
-﻿
-namespace Fitness.PersonalRecord
+﻿namespace Fitness.PersonalRecord
 {
     using FitnessApp;
 
     public class PersonalRecord
     {
-        public static float m_bench;
-        public static float m_squat;
-        public static float m_deadlift;
+        public float m_bench;
+        public float m_squat;
+        public float m_deadlift;
 
-        static bool isTesting = true;
+        bool isTesting = true;
 
-        public static void PRMenu()
+        public void PRMenu()
         {
             PRStats();
 
@@ -96,7 +95,7 @@ namespace Fitness.PersonalRecord
             return m_deadlift;
         }
 
-        public static float PRStats()
+        public float PRStats()
         {
             float total = m_bench + m_squat + m_deadlift;
 
