@@ -14,11 +14,11 @@
 
         static void CreateWeightInfo_Works()
         {
-            Info.m_weight = 100;
+            InfoAccount.m_weight = 100;
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
 
-            var expectedWeight = Info.m_weight;
+            var expectedWeight = InfoAccount.m_weight;
 
             float actualWeight = info.CreateWeightInfo();
 
@@ -34,11 +34,11 @@
 
         static void CreateHeightInfo_Works()
         {
-            Info.m_height = 100;
+            InfoAccount.m_height = 100;
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
 
-            var expectedHeight = Info.m_weight;
+            var expectedHeight = InfoAccount.m_weight;
 
             int actualHeight = info.CreateHeightInfo();
 
@@ -54,11 +54,11 @@
 
         static void CreateAge_Works()
         {
-            Info.m_age = 25;
+            InfoAccount.m_age = 25;
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
 
-            var expectedAge = Info.m_age;
+            var expectedAge = InfoAccount.m_age;
 
             int actualHeight = info.CreateAge();
 
@@ -74,11 +74,11 @@
 
         static void CreateGender_Works()
         {
-            Info.m_gender = 'M';
+            InfoAccount.m_gender = 'M';
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
 
-            var expectedGender = Info.m_gender;
+            var expectedGender = InfoAccount.m_gender;
 
             char actualGender = info.CreateGender();
 

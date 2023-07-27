@@ -23,7 +23,7 @@
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
             Calorie calorie = new Calorie();
             PersonalRecord pr = new PersonalRecord();
 

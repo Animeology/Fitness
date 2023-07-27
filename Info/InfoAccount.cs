@@ -2,7 +2,7 @@
 {
     using FitnessApp;
 
-    public class Info
+    public class InfoAccount
     {
         public float m_weight;
         public int m_height;
@@ -24,7 +24,7 @@
             switch (choice)
             {
                 case 1:
-                    Info info = new Info();
+                    InfoAccount info = new InfoAccount();
                     info.Create();
                     break;
                 case 2:
