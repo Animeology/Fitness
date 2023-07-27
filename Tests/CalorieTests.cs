@@ -1,8 +1,11 @@
-﻿namespace Fitness
+﻿namespace Fitness.Tests
 {
+    using Info;
+    using Calorie;
+
     public class CalorieTests
     {
-        static void Main(string[] args)
+        public static void AllCalorieTests(string[] args)
         {
             CalculateMenDeficitCalorie_Works();
             CalculateMenSurplusCalorie_Works();
@@ -126,15 +129,16 @@
 
             if (difference == "surplus")
             {
-                BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age) + calorieDiff;
+                BMR = menConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age + calorieDiff;
             }
             else
             {
-                BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age) - calorieDiff;
+                BMR = menConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age - calorieDiff;
             }
 
             return BMR;
         }
+
         static float CalculatorExpectedWomenCalories(float weight, float height, float age, string difference)
         {
             float BMR;
@@ -147,11 +151,11 @@
 
             if (difference == "surplus")
             {
-                BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age) + calorieDiff;
+                BMR = womenConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age + calorieDiff;
             }
             else
             {
-                BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age) - calorieDiff;
+                BMR = womenConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age - calorieDiff;
             }
 
             return BMR;

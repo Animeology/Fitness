@@ -1,5 +1,8 @@
-﻿namespace Fitness
+﻿namespace Fitness.Calorie
 {
+    using FitnessApp;
+    using Info;
+
     public class Calorie
     {
         bool isTesting = true;
@@ -58,7 +61,7 @@
             float calorieDiff = 500;
 
 
-            float BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+            float BMR = menConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age;
 
             float deficit = BMR - calorieDiff;
 
@@ -79,7 +82,7 @@
 
             float calorieDiff = 500;
 
-            float BMR = menConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+            float BMR = menConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age;
 
             float surplus = BMR + calorieDiff;
 
@@ -100,7 +103,7 @@
 
             float calorieDiff = 500;
 
-            float BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+            float BMR = womenConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age;
 
             float deficit = BMR - calorieDiff;
 
@@ -121,7 +124,7 @@
 
             float calorieDiff = 500;
 
-            float BMR = womenConst + (weightConst * Info.m_weight) + (heightConst * Info.m_height) + (ageConst * Info.m_age);
+            float BMR = womenConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age;
 
             float surplus = BMR + calorieDiff;
 

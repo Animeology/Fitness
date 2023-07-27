@@ -1,5 +1,9 @@
-﻿namespace Fitness
+﻿namespace Fitness.FitnessApp
 {
+    using Calorie;
+    using Info;
+    using PersonalRecord;
+
     public class FitnessApp
     {
         static void Main(string[] args)

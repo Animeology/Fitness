@@ -1,8 +1,10 @@
-﻿namespace Fitness
+﻿namespace Fitness.Tests
 {
+    using Info;
+
     public class InfoTests
     {
-        static void Main(string[] args)
+        public static void AllInfoTests(string[] args)
         {
             CreateWeightInfo_Works();
             CreateHeightInfo_Works();
@@ -20,7 +22,7 @@
 
             float actualWeight = info.CreateWeightInfo();
 
-            if(actualWeight == expectedWeight)
+            if (actualWeight == expectedWeight)
             {
                 Console.WriteLine("CreateWeightInfo test succeeded");
             }
@@ -60,7 +62,7 @@
 
             int actualHeight = info.CreateAge();
 
-            if( actualHeight == expectedAge)
+            if (actualHeight == expectedAge)
             {
                 Console.WriteLine("CreateAge test succeeded");
             }
@@ -80,7 +82,7 @@
 
             char actualGender = info.CreateGender();
 
-            if( actualGender == expectedGender)
+            if (actualGender == expectedGender)
             {
                 Console.WriteLine("CreateGender test succeeded");
             }

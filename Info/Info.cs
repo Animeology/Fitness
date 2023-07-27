@@ -1,5 +1,7 @@
-﻿namespace Fitness
+﻿namespace Fitness.Info
 {
+    using FitnessApp;
+
     public class Info
     {
         public static float m_weight;
@@ -7,7 +9,7 @@
         public static int m_age;
         public static char m_gender;
 
-        bool isTesting = false;
+        bool isTesting = true;
 
         public static void InfoMenu()
         {
@@ -75,7 +77,7 @@
 
         public float CreateWeightInfo()
         {
-            if(isTesting == false)
+            if (isTesting == false)
             {
                 Console.Write("Weight (in pounds): ");
                 m_weight = Convert.ToInt32(Console.ReadLine());

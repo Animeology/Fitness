@@ -1,8 +1,10 @@
-﻿namespace Fitness
+﻿namespace Fitness.Tests
 {
+    using PersonalRecord;
+
     public class PersonalRecordTests
     {
-        static void Main(string[] args)
+        public static void PRTests(string[] args)
         {
             BenchPR_ReturnExpected();
             SquatPR_ReturnExpected();
@@ -18,7 +20,7 @@
             var expectedBench = PersonalRecord.m_bench;
             var actualBench = pr.BenchPR();
 
-            if(actualBench == expectedBench)
+            if (actualBench == expectedBench)
             {
                 Console.WriteLine("BenchPR returns the correct output");
             }

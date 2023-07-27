@@ -1,5 +1,8 @@
-﻿namespace Fitness
+﻿
+namespace Fitness.PersonalRecord
 {
+    using FitnessApp;
+
     public class PersonalRecord
     {
         public static float m_bench;
@@ -44,7 +47,7 @@
 
         public float BenchPR()
         {
-            if(isTesting == false)
+            if (isTesting == false)
             {
                 Console.Write("Enter your bench PR (in pounds): ");
                 try
@@ -97,7 +100,7 @@
         {
             float total = m_bench + m_squat + m_deadlift;
 
-            if (PersonalRecord.isTesting == false)
+            if (isTesting == false)
             {
                 Console.WriteLine("Here is your PR: ");
                 Console.WriteLine("Bench: {0}", m_bench);
