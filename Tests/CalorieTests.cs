@@ -16,121 +16,105 @@
 
         void CalculateMenDeficitCalorie_Works()
         {
-            float expectedWeight = 150;
+            float expectedWeight = 150.0f;
             int expectedHeight = 180;
             int expectedAge = 25;
 
             Calorie calorie = new Calorie();
-            InfoAccount info = new InfoAccount();
 
-            info.m_weight = expectedWeight;
-            info.m_height = expectedHeight;
-            info.m_age = expectedAge;
+            calorie.info.m_weight = expectedWeight;
+            calorie.info.m_height = expectedHeight;
+            calorie.info.m_age = expectedAge;
+            calorie.info.m_gender = 'M';
 
             float expected = Metabolic.MEN_HARRIS_BENEFIT + 
                             (expectedWeight * Metabolic.MEN_WEIGHT) + 
-                            (expectedWeight * Metabolic.MEN_WEIGHT) + 
-                            (expectedAge *  Metabolic.MEN_AGE);
+                            (expectedHeight * Metabolic.MEN_HEIGHT) + 
+                            (expectedAge *  Metabolic.MEN_AGE) - Metabolic.CALORIE_DIFF;
 
             float actual = calorie.MenCalorieDeficit();
 
-            if (actual == expected)
+            if (actual != expected)
             {
-                Console.WriteLine("Calculate Men's Deficit Works: expected: {0} actual: {1}", expected, actual);
-            }
-            else
-            {
-                Console.WriteLine("Calculate Men's Deficit Doesn't Works: expected: {0} actual: {1}", expected, actual);
+                throw new Exception("Calculate Men's Deficit Failed");
             }
         }
 
         void CalculateMenSurplusCalorie_Works()
         {
-            float expectedWeight = 200;
+            float expectedWeight = 200.0f;
             int expectedHeight = 230;
             int expectedAge = 34;
 
             Calorie calorie = new Calorie();
-            InfoAccount info = new InfoAccount();
 
-            info.m_weight = expectedWeight;
-            info.m_height = expectedHeight;
-            info.m_age = expectedAge;
+            calorie.info.m_weight = expectedWeight;
+            calorie.info.m_height = expectedHeight;
+            calorie.info.m_age = expectedAge;
+            calorie.info.m_gender = 'M';
 
             float expected = Metabolic.MEN_HARRIS_BENEFIT +
                             (expectedWeight * Metabolic.MEN_WEIGHT) +
-                            (expectedWeight * Metabolic.MEN_WEIGHT) +
-                            (expectedAge * Metabolic.MEN_AGE);
+                            (expectedHeight * Metabolic.MEN_HEIGHT) +
+                            (expectedAge * Metabolic.MEN_AGE) + Metabolic.CALORIE_DIFF;
+
             float actual = calorie.MenCalorieSurplus();
 
-
-            if (actual == expected)
+            if (actual != expected)
             {
-                Console.WriteLine("Calculate Men's Surplus Works: expected: {0} actual: {1}", expected, actual);
-            }
-            else
-            {
-                Console.WriteLine("Calculate Men's Surplus Doesn't Works: expected: {0} actual: {1}", expected, actual);
+                throw new Exception("Calculate Men's Surplus Failed");
             }
         }
 
         void CalculateWomenDeficitCalorie_Works()
         {
-            float expectedWeight = 100;
+            float expectedWeight = 100.0f;
             int expectedHeight = 135;
             int expectedAge = 25;
 
             Calorie calorie = new Calorie();
-            InfoAccount info = new InfoAccount();
 
-            info.m_weight = expectedWeight;
-            info.m_height = expectedHeight;
-            info.m_age = expectedAge;
+            calorie.info.m_weight = expectedWeight;
+            calorie.info.m_height = expectedHeight;
+            calorie.info.m_age = expectedAge;
+            calorie.info.m_gender = 'F';
 
             float expected = Metabolic.WOMEN_HARRIS_BENEFIT +
                             (expectedWeight * Metabolic.WOMEN_WEIGHT) +
-                            (expectedWeight * Metabolic.WOMEN_WEIGHT) +
-                            (expectedAge * Metabolic.WOMEN_AGE);
+                            (expectedHeight * Metabolic.WOMEN_HEIGHT) +
+                            (expectedAge * Metabolic.WOMEN_AGE) - Metabolic.CALORIE_DIFF;
+
             float actual = calorie.WomenCalorieDeficit();
 
-
-            if (actual == expected)
+            if (actual != expected)
             {
-                Console.WriteLine("Calculate Women's Deficit Works: expected: {0} actual: {1}", expected, actual);
-            }
-            else
-            {
-                Console.WriteLine("Calculate Women's Deficit Doesn't Works: expected: {0} actual: {1}", expected, actual);
+                throw new Exception("Calculate Women's Deficit Failed");
             }
         }
 
         void CalculateWomenSurplusCalorie_Works()
         {
-            float expectedWeight = 100;
+            float expectedWeight = 100.0f;
             int expectedHeight = 135;
             int expectedAge = 25;
 
             Calorie calorie = new Calorie();
-            InfoAccount info = new InfoAccount();
 
-            info.m_weight = expectedWeight;
-            info.m_height = expectedHeight;
-            info.m_age = expectedAge;
+            calorie.info.m_weight = expectedWeight;
+            calorie.info.m_height = expectedHeight;
+            calorie.info.m_age = expectedAge;
+            calorie.info.m_gender = 'F';
 
             float expected = Metabolic.WOMEN_HARRIS_BENEFIT +
                             (expectedWeight * Metabolic.WOMEN_WEIGHT) +
-                            (expectedWeight * Metabolic.WOMEN_WEIGHT) +
-                            (expectedAge * Metabolic.WOMEN_AGE);
+                            (expectedHeight * Metabolic.WOMEN_HEIGHT) +
+                            (expectedAge * Metabolic.WOMEN_AGE) + Metabolic.CALORIE_DIFF;
+
             float actual = calorie.WomenCalorieSurplus();
 
-
-            if (actual == expected)
+            if (actual != expected)
             {
-                Console.WriteLine("Calculate Women's Surplus Works: expected: {0} actual: {1}", expected, actual);
-            }
-            else
-            {
-                Console.WriteLine("Calculate Women's Surplus Doesn't Works: expected: {0} actual: {1}", expected, actual);
+                throw new Exception("Calculate Women's Surplus Failed");
             }
         }
     }

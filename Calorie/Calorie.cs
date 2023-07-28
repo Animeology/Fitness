@@ -7,7 +7,7 @@
     public class Calorie
     {
         bool isTesting = true;
-        InfoAccount info = new InfoAccount();
+        public InfoAccount info = new InfoAccount();
 
         void CalorieMenu()
         {
@@ -55,37 +55,26 @@
 
         public float MenCalorieDeficit()
         {
-            float calorieDiff = 500.0f;
-
-            float BMR = Metabolic.MEN_HARRIS_BENEFIT +
-                        Metabolic.MEN_WEIGHT * info.m_weight +
-                        Metabolic.MEN_HEIGHT * info.m_height +
-                        Metabolic.MEN_AGE * info.m_age;
-
-            float deficit = BMR - calorieDiff;
+            float BMR = CalculateBMR();
+            float deficit = BMR - Metabolic.CALORIE_DIFF;
 
             if (!isTesting)
             {
-                Console.WriteLine("Your calorie intake is {0}", deficit);
+                Console.WriteLine($"Your calorie intake is {deficit}");
             }
 
             return deficit;
         }
 
+
         public float MenCalorieSurplus()
         {
-            float calorieDiff = 500;
-
-            float BMR = Metabolic.MEN_HARRIS_BENEFIT +
-                        Metabolic.MEN_WEIGHT * info.m_weight +
-                        Metabolic.MEN_HEIGHT * info.m_height +
-                        Metabolic.MEN_AGE * info.m_age;
-
-            float surplus = BMR + calorieDiff;
+            float BMR = CalculateBMR();
+            float surplus = BMR + Metabolic.CALORIE_DIFF;
 
             if (!isTesting)
             {
-                Console.WriteLine("Your calorie intake is {0} calories", surplus);
+                Console.WriteLine($"Your calorie intake is {surplus} calories");
             }
 
             return surplus;
@@ -93,18 +82,12 @@
 
         public float WomenCalorieDeficit()
         {
-            float calorieDiff = 500;
-
-            float BMR = Metabolic.WOMEN_HARRIS_BENEFIT +
-                        Metabolic.WOMEN_WEIGHT * info.m_weight +
-                        Metabolic.WOMEN_HEIGHT * info.m_height +
-                        Metabolic.WOMEN_AGE * info.m_age;
-
-            float deficit = BMR - calorieDiff;
+            float BMR = CalculateBMR();
+            float deficit = BMR - Metabolic.CALORIE_DIFF;
 
             if (!isTesting)
             {
-                Console.WriteLine("Your calorie intake is {0} calories", deficit);
+                Console.WriteLine($"Your calorie intake is {deficit}");
             }
 
             return deficit;
@@ -112,21 +95,37 @@
 
         public float WomenCalorieSurplus()
         {
-            float calorieDiff = 500;
-
-            float BMR = Metabolic.WOMEN_HARRIS_BENEFIT +
-                        Metabolic.WOMEN_WEIGHT * info.m_weight +
-                        Metabolic.WOMEN_HEIGHT * info.m_height +
-                        Metabolic.WOMEN_AGE * info.m_age;
-
-            float surplus = BMR + calorieDiff;
+            float BMR = CalculateBMR();
+            float surplus = BMR + Metabolic.CALORIE_DIFF;
 
             if (!isTesting)
             {
-                Console.WriteLine("Your calorie intake is {0} calories", surplus);
+                Console.WriteLine($"Your calorie intake is {surplus} calories");
             }
 
             return surplus;
+        }
+
+        float CalculateBMR()
+        {
+            float BMR = 0;
+
+            if (info.m_gender == 'M')
+            {
+                BMR = Metabolic.MEN_HARRIS_BENEFIT +
+                        (Metabolic.MEN_WEIGHT * info.m_weight) +
+                        (Metabolic.MEN_HEIGHT * info.m_height) +
+                        (Metabolic.MEN_AGE * info.m_age);
+
+            }
+            else
+            {
+                BMR = Metabolic.WOMEN_HARRIS_BENEFIT +
+                        (Metabolic.WOMEN_WEIGHT * info.m_weight) +
+                        (Metabolic.WOMEN_HEIGHT * info.m_height) +
+                        (Metabolic.WOMEN_AGE * info.m_age);
+            }
+            return BMR;
         }
 
         public void CheckInfoBeforeCalculate()
