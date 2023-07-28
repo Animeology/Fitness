@@ -14,10 +14,10 @@
 
         static void BenchPR_ReturnExpected()
         {
-            PersonalRecord.m_bench = 135.0f;
+            float expectedBench = 135.0f;
             PersonalRecord pr = new PersonalRecord();
 
-            var expectedBench = PersonalRecord.m_bench;
+            pr.m_bench = expectedBench;
             var actualBench = pr.BenchPR();
 
             if (actualBench == expectedBench)
@@ -32,10 +32,10 @@
 
         static void SquatPR_ReturnExpected()
         {
-            PersonalRecord.m_squat = 225.0f;
+            float expectedSquat = 225.0f;
             PersonalRecord pr = new PersonalRecord();
 
-            var expectedSquat = PersonalRecord.m_squat;
+            pr.m_squat = expectedSquat;
             var actualSquat = pr.SquatPR();
 
             if (actualSquat == expectedSquat)
@@ -50,10 +50,10 @@
 
         static void DeadliftPR_ReturnExpected()
         {
-            PersonalRecord.m_deadlift = 300.0f;
+            float expectedDeadlift = 300.0f;
             PersonalRecord pr = new PersonalRecord();
-
-            var expectedDeadlift = PersonalRecord.m_deadlift;
+            
+            pr.m_deadlift = expectedDeadlift;
             var actualDeadlift = pr.DeadliftPR();
 
             if (actualDeadlift == expectedDeadlift)
@@ -68,12 +68,18 @@
 
         static void TotalPR_ReturnExpected()
         {
-            PersonalRecord.m_bench = 135.0f;
-            PersonalRecord.m_squat = 225.0f;
-            PersonalRecord.m_deadlift = 300.0f;
+            float expectedBench = 135.0f;
+            float expectedSquat = 225.0f;
+            float expectedDeadlift = 300.0f;
 
-            var expectedTotal = CalculateTotalPR();
-            var actualTotal = PersonalRecord.PRStats();
+            float expectedTotal = expectedBench + expectedSquat + expectedDeadlift;
+
+            PersonalRecord pr = new PersonalRecord();
+
+            pr.m_bench = expectedBench;
+            pr.m_squat = expectedSquat;
+            pr.m_deadlift = expectedDeadlift;
+            var actualTotal = pr.PRStats();
 
             if (actualTotal == expectedTotal)
             {
@@ -83,15 +89,6 @@
             {
                 Console.WriteLine("TotalPR returns the incorrect output");
             }
-        }
-
-        static float CalculateTotalPR()
-        {
-            PersonalRecord.m_bench = 135.0f;
-            PersonalRecord.m_squat = 225.0f;
-            PersonalRecord.m_deadlift = 300.0f;
-
-            return PersonalRecord.m_bench + PersonalRecord.m_squat + PersonalRecord.m_deadlift;
         }
     }
 }
