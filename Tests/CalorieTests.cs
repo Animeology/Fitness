@@ -1,5 +1,6 @@
 ﻿namespace Fitness.Tests
 {
+    using MetabolicData;
     using Info;
     using Calorie;
 
@@ -15,19 +16,23 @@
 
         static void CalculateMenDeficitCalorie_Works()
         {
-            InfoAccount.m_weight = 150;
-            InfoAccount.m_height = 180;
-            InfoAccount.m_age = 25;
+            float expectedWeight = 150;
+            int expectedHeight = 180;
+            int expectedAge = 25;
 
             Calorie calorie = new Calorie();
+            InfoAccount info = new InfoAccount();
 
-            var expectedWeight = InfoAccount.m_weight;
-            var expectedHeight = InfoAccount.m_height;
-            var expectedAge = InfoAccount.m_age;
+            info.m_weight = expectedWeight;
+            info.m_height = expectedHeight;
+            info.m_age = expectedAge;
 
-            float expected = CalculatorExpectedMenCalories(expectedWeight, expectedHeight, expectedAge, "deficit");
+            float expected = Metabolic.MEN_HARRIS_BENEFIT + 
+                            (expectedWeight * Metabolic.MEN_WEIGHT) + 
+                            (expectedWeight * Metabolic.MEN_WEIGHT) + 
+                            (expectedAge *  Metabolic.MEN_AGE);
+
             float actual = calorie.MenCalorieDeficit();
-
 
             if (actual == expected)
             {
@@ -41,17 +46,21 @@
 
         static void CalculateMenSurplusCalorie_Works()
         {
-            InfoAccount.m_weight = 180;
-            InfoAccount.m_height = 150;
-            InfoAccount.m_age = 30;
+            float expectedWeight = 200;
+            int expectedHeight = 230;
+            int expectedAge = 34;
 
             Calorie calorie = new Calorie();
+            InfoAccount info = new InfoAccount();
 
-            var expectedWeight = InfoAccount.m_weight;
-            var expectedHeight = InfoAccount.m_height;
-            var expectedAge = InfoAccount.m_age;
+            info.m_weight = expectedWeight;
+            info.m_height = expectedHeight;
+            info.m_age = expectedAge;
 
-            float expected = CalculatorExpectedMenCalories(expectedWeight, expectedHeight, expectedAge, "surplus");
+            float expected = Metabolic.MEN_HARRIS_BENEFIT +
+                            (expectedWeight * Metabolic.MEN_WEIGHT) +
+                            (expectedWeight * Metabolic.MEN_WEIGHT) +
+                            (expectedAge * Metabolic.MEN_AGE);
             float actual = calorie.MenCalorieSurplus();
 
 
@@ -67,17 +76,21 @@
 
         static void CalculateWomenDeficitCalorie_Works()
         {
-            InfoAccount.m_weight = 100;
-            InfoAccount.m_height = 135;
-            InfoAccount.m_age = 25;
+            float expectedWeight = 100;
+            int expectedHeight = 135;
+            int expectedAge = 25;
 
             Calorie calorie = new Calorie();
+            InfoAccount info = new InfoAccount();
 
-            var expectedWeight = InfoAccount.m_weight;
-            var expectedHeight = InfoAccount.m_height;
-            var expectedAge = InfoAccount.m_age;
+            info.m_weight = expectedWeight;
+            info.m_height = expectedHeight;
+            info.m_age = expectedAge;
 
-            float expected = CalculatorExpectedWomenCalories(expectedWeight, expectedHeight, expectedAge, "deficit");
+            float expected = Metabolic.WOMEN_HARRIS_BENEFIT +
+                            (expectedWeight * Metabolic.WOMEN_WEIGHT) +
+                            (expectedWeight * Metabolic.WOMEN_WEIGHT) +
+                            (expectedAge * Metabolic.WOMEN_AGE);
             float actual = calorie.WomenCalorieDeficit();
 
 
@@ -93,17 +106,21 @@
 
         static void CalculateWomenSurplusCalorie_Works()
         {
-            InfoAccount.m_weight = 180;
-            InfoAccount.m_height = 150;
-            InfoAccount.m_age = 30;
+            float expectedWeight = 100;
+            int expectedHeight = 135;
+            int expectedAge = 25;
 
             Calorie calorie = new Calorie();
+            InfoAccount info = new InfoAccount();
 
-            var expectedWeight = InfoAccount.m_weight;
-            var expectedHeight = InfoAccount.m_height;
-            var expectedAge = InfoAccount.m_age;
+            info.m_weight = expectedWeight;
+            info.m_height = expectedHeight;
+            info.m_age = expectedAge;
 
-            float expected = CalculatorExpectedWomenCalories(expectedWeight, expectedHeight, expectedAge, "surplus");
+            float expected = Metabolic.WOMEN_HARRIS_BENEFIT +
+                            (expectedWeight * Metabolic.WOMEN_WEIGHT) +
+                            (expectedWeight * Metabolic.WOMEN_WEIGHT) +
+                            (expectedAge * Metabolic.WOMEN_AGE);
             float actual = calorie.WomenCalorieSurplus();
 
 
@@ -115,50 +132,6 @@
             {
                 Console.WriteLine("Calculate Women's Surplus Doesn't Works: expected: {0} actual: {1}", expected, actual);
             }
-        }
-
-        static float CalculatorExpectedMenCalories(float weight, float height, float age, string difference)
-        {
-            float BMR;
-            float menConst = 66;
-            float weightConst = 6.23f;
-            float heightConst = 12.7f;
-            float ageConst = 6.8f;
-
-            float calorieDiff = 500;
-
-            if (difference == "surplus")
-            {
-                BMR = menConst + weightConst * InfoAccount.m_weight + heightConst * InfoAccount.m_height + ageConst * InfoAccount.m_age + calorieDiff;
-            }
-            else
-            {
-                BMR = menConst + weightConst * InfoAccount.m_weight + heightConst * InfoAccount.m_height + ageConst * InfoAccount.m_age - calorieDiff;
-            }
-
-            return BMR;
-        }
-
-        static float CalculatorExpectedWomenCalories(float weight, float height, float age, string difference)
-        {
-            float BMR;
-            float womenConst = 655;
-            float weightConst = 4.35f;
-            float heightConst = 4.7f;
-            float ageConst = 4.7f;
-
-            float calorieDiff = 500;
-
-            if (difference == "surplus")
-            {
-                BMR = womenConst + weightConst * InfoAccount.m_weight + heightConst * InfoAccount.m_height + ageConst * InfoAccount.m_age + calorieDiff;
-            }
-            else
-            {
-                BMR = womenConst + weightConst * InfoAccount.m_weight + heightConst * InfoAccount.m_height + ageConst * InfoAccount.m_age - calorieDiff;
-            }
-
-            return BMR;
         }
     }
 }
