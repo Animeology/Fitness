@@ -2,10 +2,12 @@
 {
     using FitnessApp;
     using Info;
+    using MetabolicData;
 
     public class Calorie
     {
         bool isTesting = true;
+        InfoAccount info = new InfoAccount();
 
         void CalorieMenu()
         {
@@ -20,7 +22,7 @@
             switch (choice)
             {
                 case 1:
-                    if (Info.m_gender == 'M')
+                    if (info.m_gender == 'M')
                     {
                         MenCalorieDeficit();
                     }
@@ -31,7 +33,7 @@
                     CalorieMenu();
                     break;
                 case 2:
-                    if (Info.m_gender == 'M')
+                    if (info.m_gender == 'M')
                     {
                         MenCalorieSurplus();
                     }
@@ -53,15 +55,12 @@
 
         public float MenCalorieDeficit()
         {
-            float menConst = 66;
-            float weightConst = 6.23f;
-            float heightConst = 12.7f;
-            float ageConst = 6.8f;
+            float calorieDiff = 500.0f;
 
-            float calorieDiff = 500;
-
-
-            float BMR = menConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age;
+            float BMR = Metabolic.MEN_HARRIS_BENEFIT +
+                        Metabolic.MEN_WEIGHT * info.m_weight +
+                        Metabolic.MEN_HEIGHT * info.m_height +
+                        Metabolic.MEN_AGE * info.m_age;
 
             float deficit = BMR - calorieDiff;
 
@@ -75,14 +74,12 @@
 
         public float MenCalorieSurplus()
         {
-            float menConst = 66;
-            float weightConst = 6.23f;
-            float heightConst = 12.7f;
-            float ageConst = 6.8f;
-
             float calorieDiff = 500;
 
-            float BMR = menConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age;
+            float BMR = Metabolic.MEN_HARRIS_BENEFIT +
+                        Metabolic.MEN_WEIGHT * info.m_weight +
+                        Metabolic.MEN_HEIGHT * info.m_height +
+                        Metabolic.MEN_AGE * info.m_age;
 
             float surplus = BMR + calorieDiff;
 
@@ -96,14 +93,12 @@
 
         public float WomenCalorieDeficit()
         {
-            float womenConst = 655;
-            float weightConst = 4.35f;
-            float heightConst = 4.7f;
-            float ageConst = 4.7f;
-
             float calorieDiff = 500;
 
-            float BMR = womenConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age;
+            float BMR = Metabolic.WOMEN_HARRIS_BENEFIT +
+                        Metabolic.WOMEN_WEIGHT * info.m_weight +
+                        Metabolic.WOMEN_HEIGHT * info.m_height +
+                        Metabolic.WOMEN_AGE * info.m_age;
 
             float deficit = BMR - calorieDiff;
 
@@ -117,14 +112,12 @@
 
         public float WomenCalorieSurplus()
         {
-            float womenConst = 655;
-            float weightConst = 4.35f;
-            float heightConst = 4.7f;
-            float ageConst = 4.7f;
-
             float calorieDiff = 500;
 
-            float BMR = womenConst + weightConst * Info.m_weight + heightConst * Info.m_height + ageConst * Info.m_age;
+            float BMR = Metabolic.WOMEN_HARRIS_BENEFIT +
+                        Metabolic.WOMEN_WEIGHT * info.m_weight +
+                        Metabolic.WOMEN_HEIGHT * info.m_height +
+                        Metabolic.WOMEN_AGE * info.m_age;
 
             float surplus = BMR + calorieDiff;
 
@@ -136,14 +129,14 @@
             return surplus;
         }
 
-        public static void CheckInfoBeforeCalculate()
+        public void CheckInfoBeforeCalculate()
         {
             Console.WriteLine(
                 "Your weight is {0}, your height is {1}, {2} years old, and a {3}",
-                Info.m_weight,
-                Info.m_height,
-                Info.m_age,
-                Info.m_gender == 'M' ? "Male" : "Female"
+                info.m_weight,
+                info.m_height,
+                info.m_age,
+                info.m_gender == 'M' ? "Male" : "Female"
             );
 
             Console.WriteLine("Is this correct?");
@@ -160,7 +153,7 @@
                     break;
                 case 2:
                     Console.WriteLine("Please input the correct info.");
-                    Info.InfoMenu();
+                    info.InfoMenu();
                     break;
                 default:
                     Console.WriteLine("Not a valid choice, try again");
