@@ -21,13 +21,9 @@
             info.m_weight = expectedWeight;
             float actualWeight = info.CreateWeightInfo();
 
-            if (actualWeight == expectedWeight)
+            if (actualWeight != expectedWeight)
             {
-                Console.WriteLine("CreateWeightInfo test succeeded");
-            }
-            else
-            {
-                Console.WriteLine("CreateWeightInfo test failed");
+                throw new Exception("CreateWeightInfo test failed");
             }
         }
 
@@ -41,13 +37,9 @@
 
             int actualHeight = info.CreateHeightInfo();
 
-            if (actualHeight == expectedHeight)
+            if (actualHeight != expectedHeight)
             {
-                Console.WriteLine("CreateHeightInfo test succeeded");
-            }
-            else
-            {
-                Console.WriteLine("CreateHeightInfo test failed");
+                throw new Exception("CreateHeightInfo test failed");
             }
         }
 
@@ -58,15 +50,11 @@
             InfoAccount info = new InfoAccount();
 
             info.m_age = expectedAge;
-            int actualHeight = info.CreateAge();
+            int actualAge = info.CreateAge();
 
-            if (actualHeight == expectedAge)
+            if (actualAge != expectedAge)
             {
-                Console.WriteLine("CreateAge test succeeded");
-            }
-            else
-            {
-                Console.WriteLine("CreateAge test failed");
+                throw new Exception("CreateAgeInfo test failed");
             }
         }
 
@@ -79,13 +67,9 @@
             info.m_gender = expectedGender;
             char actualGender = info.CreateGender();
 
-            if (actualGender == expectedGender)
+            if (actualGender != expectedGender)
             {
-                Console.WriteLine("CreateGender test succeeded");
-            }
-            else
-            {
-                Console.WriteLine("CreateGender test failed");
+                throw new Exception("CreateGenderInfo test failed");
             }
         }
     }

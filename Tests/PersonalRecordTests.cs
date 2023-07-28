@@ -20,14 +20,10 @@
             pr.m_bench = expectedBench;
             var actualBench = pr.BenchPR();
 
-            if (actualBench == expectedBench)
+            if (actualBench != expectedBench)
             {
-                Console.WriteLine("BenchPR returns the correct output");
-            }
-            else
-            {
-                Console.WriteLine("BenchPR returns the incorrect output");
-            }
+                throw new Exception("BenchPR returns the incorrect output");
+            }            
         }
 
         void SquatPR_ReturnExpected()
@@ -38,13 +34,9 @@
             pr.m_squat = expectedSquat;
             var actualSquat = pr.SquatPR();
 
-            if (actualSquat == expectedSquat)
+            if (actualSquat != expectedSquat)
             {
-                Console.WriteLine("SquatPR returns the correct output");
-            }
-            else
-            {
-                Console.WriteLine("SquatPR returns the incorrect output");
+                throw new Exception("SquatPR returns the incorrect output");
             }
         }
 
@@ -56,13 +48,9 @@
             pr.m_deadlift = expectedDeadlift;
             var actualDeadlift = pr.DeadliftPR();
 
-            if (actualDeadlift == expectedDeadlift)
+            if (actualDeadlift != expectedDeadlift)
             {
-                Console.WriteLine("DeadliftPR returns the correct output");
-            }
-            else
-            {
-                Console.WriteLine("DeadliftPR returns the incorrect output");
+                throw new Exception("DeadliftPR returns the incorrect output");
             }
         }
 
@@ -81,13 +69,9 @@
             pr.m_deadlift = expectedDeadlift;
             var actualTotal = pr.PRStats();
 
-            if (actualTotal == expectedTotal)
+            if (actualTotal != expectedTotal)
             {
-                Console.WriteLine("TotalPR returns the correct output");
-            }
-            else
-            {
-                Console.WriteLine("TotalPR returns the incorrect output");
+                throw new Exception("TotalPR returns the incorrect output");
             }
         }
     }
