@@ -3,11 +3,21 @@
     using Calorie;
     using Info;
     using PersonalRecord;
+    using Tests;
 
     public class FitnessApp
     {
         static void Main(string[] args)
         {
+            CalorieTests calorieTests = new CalorieTests();
+            calorieTests.AllCalorieTests();
+
+            InfoTests infoTests = new InfoTests();
+            infoTests.AllInfoTests();
+
+            PersonalRecordTests prTests = new PersonalRecordTests();
+            prTests.AllPRTests();
+
             Menu();
         }
 
