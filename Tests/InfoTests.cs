@@ -4,7 +4,7 @@
 
     public class InfoTests
     {
-        public static void AllInfoTests(string[] args)
+        public void AllInfoTests()
         {
             CreateWeightInfo_Works();
             CreateHeightInfo_Works();
@@ -12,14 +12,13 @@
             CreateGender_Works();
         }
 
-        static void CreateWeightInfo_Works()
+        void CreateWeightInfo_Works()
         {
-            InfoAccount.m_weight = 100;
+            float expectedWeight = 100;
 
             InfoAccount info = new InfoAccount();
 
-            var expectedWeight = InfoAccount.m_weight;
-
+            info.m_weight = expectedWeight;
             float actualWeight = info.CreateWeightInfo();
 
             if (actualWeight == expectedWeight)
@@ -32,13 +31,13 @@
             }
         }
 
-        static void CreateHeightInfo_Works()
+        void CreateHeightInfo_Works()
         {
-            InfoAccount.m_height = 100;
+            int expectedHeight = 100;
 
             InfoAccount info = new InfoAccount();
 
-            var expectedHeight = InfoAccount.m_weight;
+            info.m_height = expectedHeight;
 
             int actualHeight = info.CreateHeightInfo();
 
@@ -52,14 +51,13 @@
             }
         }
 
-        static void CreateAge_Works()
+        void CreateAge_Works()
         {
-            InfoAccount.m_age = 25;
+            int expectedAge = 25;
 
             InfoAccount info = new InfoAccount();
 
-            var expectedAge = InfoAccount.m_age;
-
+            info.m_age = expectedAge;
             int actualHeight = info.CreateAge();
 
             if (actualHeight == expectedAge)
@@ -72,14 +70,13 @@
             }
         }
 
-        static void CreateGender_Works()
+        void CreateGender_Works()
         {
-            InfoAccount.m_gender = 'M';
+            char expectedGender = 'M';
 
             InfoAccount info = new InfoAccount();
 
-            var expectedGender = InfoAccount.m_gender;
-
+            info.m_gender = expectedGender;
             char actualGender = info.CreateGender();
 
             if (actualGender == expectedGender)

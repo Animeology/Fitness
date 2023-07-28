@@ -4,7 +4,7 @@
 
     public class PersonalRecordTests
     {
-        public static void PRTests(string[] args)
+        public void AllPRTests()
         {
             BenchPR_ReturnExpected();
             SquatPR_ReturnExpected();
@@ -12,7 +12,7 @@
             TotalPR_ReturnExpected();
         }
 
-        static void BenchPR_ReturnExpected()
+        void BenchPR_ReturnExpected()
         {
             float expectedBench = 135.0f;
             PersonalRecord pr = new PersonalRecord();
@@ -30,7 +30,7 @@
             }
         }
 
-        static void SquatPR_ReturnExpected()
+        void SquatPR_ReturnExpected()
         {
             float expectedSquat = 225.0f;
             PersonalRecord pr = new PersonalRecord();
@@ -48,7 +48,7 @@
             }
         }
 
-        static void DeadliftPR_ReturnExpected()
+        void DeadliftPR_ReturnExpected()
         {
             float expectedDeadlift = 300.0f;
             PersonalRecord pr = new PersonalRecord();
@@ -66,7 +66,7 @@
             }
         }
 
-        static void TotalPR_ReturnExpected()
+        void TotalPR_ReturnExpected()
         {
             float expectedBench = 135.0f;
             float expectedSquat = 225.0f;

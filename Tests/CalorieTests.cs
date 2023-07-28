@@ -6,7 +6,7 @@
 
     public class CalorieTests
     {
-        public static void AllCalorieTests(string[] args)
+        public void AllCalorieTests()
         {
             CalculateMenDeficitCalorie_Works();
             CalculateMenSurplusCalorie_Works();
@@ -14,7 +14,7 @@
             CalculateWomenSurplusCalorie_Works();
         }
 
-        static void CalculateMenDeficitCalorie_Works()
+        void CalculateMenDeficitCalorie_Works()
         {
             float expectedWeight = 150;
             int expectedHeight = 180;
@@ -44,7 +44,7 @@
             }
         }
 
-        static void CalculateMenSurplusCalorie_Works()
+        void CalculateMenSurplusCalorie_Works()
         {
             float expectedWeight = 200;
             int expectedHeight = 230;
@@ -74,7 +74,7 @@
             }
         }
 
-        static void CalculateWomenDeficitCalorie_Works()
+        void CalculateWomenDeficitCalorie_Works()
         {
             float expectedWeight = 100;
             int expectedHeight = 135;
@@ -104,7 +104,7 @@
             }
         }
 
-        static void CalculateWomenSurplusCalorie_Works()
+        void CalculateWomenSurplusCalorie_Works()
         {
             float expectedWeight = 100;
             int expectedHeight = 135;
