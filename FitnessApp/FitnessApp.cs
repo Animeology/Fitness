@@ -3,11 +3,21 @@
     using Calorie;
     using Info;
     using PersonalRecord;
+    using Tests;
 
     public class FitnessApp
     {
         static void Main(string[] args)
         {
+            CalorieTests calorieTests = new CalorieTests();
+            calorieTests.AllCalorieTests();
+
+            InfoTests infoTests = new InfoTests();
+            infoTests.AllInfoTests();
+
+            PersonalRecordTests prTests = new PersonalRecordTests();
+            prTests.AllPRTests();
+
             Menu();
         }
 
@@ -23,16 +33,20 @@
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
+            InfoAccount info = new InfoAccount();
+            Calorie calorie = new Calorie();
+            PersonalRecord pr = new PersonalRecord();
+
             switch (choice)
             {
                 case 1:
-                    Info.InfoMenu();
+                    info.InfoMenu();
                     break;
                 case 2:
-                    Calorie.CheckInfoBeforeCalculate();
+                    calorie.CheckInfoBeforeCalculate();
                     break;
                 case 3:
-                    PersonalRecord.PRMenu();
+                    pr.PRMenu();
                     break;
                 case 4:
                     break;

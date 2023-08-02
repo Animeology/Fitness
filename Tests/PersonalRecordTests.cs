@@ -4,7 +4,7 @@
 
     public class PersonalRecordTests
     {
-        public static void PRTests(string[] args)
+        public void AllPRTests()
         {
             BenchPR_ReturnExpected();
             SquatPR_ReturnExpected();
@@ -12,86 +12,67 @@
             TotalPR_ReturnExpected();
         }
 
-        static void BenchPR_ReturnExpected()
+        void BenchPR_ReturnExpected()
         {
-            PersonalRecord.m_bench = 135.0f;
+            float expectedBench = 135.0f;
             PersonalRecord pr = new PersonalRecord();
 
-            var expectedBench = PersonalRecord.m_bench;
+            pr.m_bench = expectedBench;
             var actualBench = pr.BenchPR();
 
-            if (actualBench == expectedBench)
+            if (actualBench != expectedBench)
             {
-                Console.WriteLine("BenchPR returns the correct output");
-            }
-            else
-            {
-                Console.WriteLine("BenchPR returns the incorrect output");
-            }
+                throw new Exception("BenchPR returns the incorrect output");
+            }            
         }
 
-        static void SquatPR_ReturnExpected()
+        void SquatPR_ReturnExpected()
         {
-            PersonalRecord.m_squat = 225.0f;
+            float expectedSquat = 225.0f;
             PersonalRecord pr = new PersonalRecord();
 
-            var expectedSquat = PersonalRecord.m_squat;
+            pr.m_squat = expectedSquat;
             var actualSquat = pr.SquatPR();
 
-            if (actualSquat == expectedSquat)
+            if (actualSquat != expectedSquat)
             {
-                Console.WriteLine("SquatPR returns the correct output");
-            }
-            else
-            {
-                Console.WriteLine("SquatPR returns the incorrect output");
+                throw new Exception("SquatPR returns the incorrect output");
             }
         }
 
-        static void DeadliftPR_ReturnExpected()
+        void DeadliftPR_ReturnExpected()
         {
-            PersonalRecord.m_deadlift = 300.0f;
+            float expectedDeadlift = 300.0f;
             PersonalRecord pr = new PersonalRecord();
-
-            var expectedDeadlift = PersonalRecord.m_deadlift;
+            
+            pr.m_deadlift = expectedDeadlift;
             var actualDeadlift = pr.DeadliftPR();
 
-            if (actualDeadlift == expectedDeadlift)
+            if (actualDeadlift != expectedDeadlift)
             {
-                Console.WriteLine("DeadliftPR returns the correct output");
-            }
-            else
-            {
-                Console.WriteLine("DeadliftPR returns the incorrect output");
+                throw new Exception("DeadliftPR returns the incorrect output");
             }
         }
 
-        static void TotalPR_ReturnExpected()
+        void TotalPR_ReturnExpected()
         {
-            PersonalRecord.m_bench = 135.0f;
-            PersonalRecord.m_squat = 225.0f;
-            PersonalRecord.m_deadlift = 300.0f;
+            float expectedBench = 135.0f;
+            float expectedSquat = 225.0f;
+            float expectedDeadlift = 300.0f;
 
-            var expectedTotal = CalculateTotalPR();
-            var actualTotal = PersonalRecord.PRStats();
+            float expectedTotal = expectedBench + expectedSquat + expectedDeadlift;
 
-            if (actualTotal == expectedTotal)
+            PersonalRecord pr = new PersonalRecord();
+
+            pr.m_bench = expectedBench;
+            pr.m_squat = expectedSquat;
+            pr.m_deadlift = expectedDeadlift;
+            var actualTotal = pr.PRStats();
+
+            if (actualTotal != expectedTotal)
             {
-                Console.WriteLine("TotalPR returns the correct output");
+                throw new Exception("TotalPR returns the incorrect output");
             }
-            else
-            {
-                Console.WriteLine("TotalPR returns the incorrect output");
-            }
-        }
-
-        static float CalculateTotalPR()
-        {
-            PersonalRecord.m_bench = 135.0f;
-            PersonalRecord.m_squat = 225.0f;
-            PersonalRecord.m_deadlift = 300.0f;
-
-            return PersonalRecord.m_bench + PersonalRecord.m_squat + PersonalRecord.m_deadlift;
         }
     }
 }

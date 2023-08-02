@@ -4,7 +4,7 @@
 
     public class InfoTests
     {
-        public static void AllInfoTests(string[] args)
+        public void AllInfoTests()
         {
             CreateWeightInfo_Works();
             CreateHeightInfo_Works();
@@ -12,83 +12,64 @@
             CreateGender_Works();
         }
 
-        static void CreateWeightInfo_Works()
+        void CreateWeightInfo_Works()
         {
-            Info.m_weight = 100;
+            float expectedWeight = 100;
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
 
-            var expectedWeight = Info.m_weight;
-
+            info.m_weight = expectedWeight;
             float actualWeight = info.CreateWeightInfo();
 
-            if (actualWeight == expectedWeight)
+            if (actualWeight != expectedWeight)
             {
-                Console.WriteLine("CreateWeightInfo test succeeded");
-            }
-            else
-            {
-                Console.WriteLine("CreateWeightInfo test failed");
+                throw new Exception("CreateWeightInfo test failed");
             }
         }
 
-        static void CreateHeightInfo_Works()
+        void CreateHeightInfo_Works()
         {
-            Info.m_height = 100;
+            int expectedHeight = 100;
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
 
-            var expectedHeight = Info.m_weight;
+            info.m_height = expectedHeight;
 
             int actualHeight = info.CreateHeightInfo();
 
-            if (actualHeight == expectedHeight)
+            if (actualHeight != expectedHeight)
             {
-                Console.WriteLine("CreateHeightInfo test succeeded");
-            }
-            else
-            {
-                Console.WriteLine("CreateHeightInfo test failed");
+                throw new Exception("CreateHeightInfo test failed");
             }
         }
 
-        static void CreateAge_Works()
+        void CreateAge_Works()
         {
-            Info.m_age = 25;
+            int expectedAge = 25;
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
 
-            var expectedAge = Info.m_age;
+            info.m_age = expectedAge;
+            int actualAge = info.CreateAge();
 
-            int actualHeight = info.CreateAge();
-
-            if (actualHeight == expectedAge)
+            if (actualAge != expectedAge)
             {
-                Console.WriteLine("CreateAge test succeeded");
-            }
-            else
-            {
-                Console.WriteLine("CreateAge test failed");
+                throw new Exception("CreateAgeInfo test failed");
             }
         }
 
-        static void CreateGender_Works()
+        void CreateGender_Works()
         {
-            Info.m_gender = 'M';
+            char expectedGender = 'M';
 
-            Info info = new Info();
+            InfoAccount info = new InfoAccount();
 
-            var expectedGender = Info.m_gender;
-
+            info.m_gender = expectedGender;
             char actualGender = info.CreateGender();
 
-            if (actualGender == expectedGender)
+            if (actualGender != expectedGender)
             {
-                Console.WriteLine("CreateGender test succeeded");
-            }
-            else
-            {
-                Console.WriteLine("CreateGender test failed");
+                throw new Exception("CreateGenderInfo test failed");
             }
         }
     }

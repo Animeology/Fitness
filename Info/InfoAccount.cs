@@ -2,16 +2,16 @@
 {
     using FitnessApp;
 
-    public class Info
+    public class InfoAccount
     {
-        public static float m_weight;
-        public static int m_height;
-        public static int m_age;
-        public static char m_gender;
+        public float m_weight;
+        public int m_height;
+        public int m_age;
+        public char m_gender;
 
         bool isTesting = true;
 
-        public static void InfoMenu()
+        public void InfoMenu()
         {
             Console.WriteLine();
             Console.WriteLine("Your Info ");
@@ -24,7 +24,7 @@
             switch (choice)
             {
                 case 1:
-                    Info info = new Info();
+                    InfoAccount info = new InfoAccount();
                     info.Create();
                     break;
                 case 2:
@@ -39,7 +39,7 @@
             }
         }
 
-        static void Check()
+        void Check()
         {
             Console.Write("Current Weight: ");
             Console.Write(m_weight);
